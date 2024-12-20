@@ -45,8 +45,8 @@ START
         RETURN slutResultat
             
     ENDFUNCTION
-        //anropa funktionen med input
-    CALL FUNCTION splitTheNota(prisInput, dricksInput, antalPersonerInput)
+        
+    CALL FUNCTION splitTheNota()
 
 END
 
