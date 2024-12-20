@@ -85,6 +85,7 @@ START
         LOOP UNTIL currentWord == slutOrd
             PRINT "Nuvarande ord är: " + currentWord + " Ange ett ord som skiljer sig med en bokstav."
             INPUT userInput
+            CONVERT userInput to UPPERCASE
 
             //Kontrollera om userInput är ett giltigt ord från ordbok och om det skiljer sig med endast en bokstav 
             IF CALL FUNCTION wordCheck(userInput, ordBok) AND
@@ -103,6 +104,11 @@ START
     ENDFUNCTION
 
     FUNCTION isOneLetterApart(wordOne, wordTwo)
+    //Kontrollera att längden är samma på båda orden
+    IF length of wordOne != length of wordTwo Then 
+        RETURN false
+    ENDIF
+    
         SET diffCount = 0 // sätt en räknare för skillnader mellan bokstäver 
 
             //Loopa genom index och jämför varje bokstav 
